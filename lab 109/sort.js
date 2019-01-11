@@ -45,3 +45,15 @@ function BubbleSort (array)
     }
     return array;
     }
+
+    function InsertionSort (array){
+      for (var i = 1; i <array.length; i++){
+        for (var j = i; j>0; j--){
+          if (array [j] < array [j-1] ){ //if index to right is greater than index to left
+            var temp =   array [j] //swap
+            array [j] =  array [j-1] // swap
+            array [j-1] = temp; //swap
+          }
+      }
+        }
+      }
