@@ -7,10 +7,6 @@ function loadArray (size){
 }
 }
 
-
-
-
-
 function Sort (array){
 var maxIndex;
 var temp;
@@ -26,6 +22,7 @@ for (var i < array.length; i--){
   array [maxIndex] = temp; //swap
 }
 return array;
+millis ();
 }
 
 
@@ -47,7 +44,7 @@ function BubbleSort (array)
         }
         }
       }
-
+millis ();
     console.log (swapCountBubbleSort)
     console.log (compareCountBubbleSort)
   }
@@ -74,6 +71,7 @@ function BubbleSort (array)
     else {
       compareCountSelectionSort ++
     }
+    millis ();
   console.log (swapCountSelectionSort)
   console.log (compareCountSelectionSort)
     }
@@ -84,13 +82,16 @@ function BubbleSort (array)
       var compareCountInsertionSort;
       for (var i = 1; i <array.length; i++){
         for (var j = i; j>0; j--){
+          compareCountInsertionSort ++;
           if (array [j] < array [j-1] ){ //if index to right is greater than index to left
             var temp =   array [j] //swap
             array [j] =  array [j-1] // swap
             array [j-1] = temp; //swap
-          }
+            swapCountInsertionSort ++;
+         }
       }
         }
+        millis ();
       console.log (compareCountInsertionSort)
       console.log (swapCountInsertionSort)
       }
