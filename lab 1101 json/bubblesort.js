@@ -1,50 +1,55 @@
-
+//global variables
+//measurements
+var compares = 0;
+var swaps = 0;
+var millisecondEnd;
+var milliseondStart;
+var difference;
 var data;
-var barHeight;
-//  preload a large file
-//function preload(){
-//  data = loadJSON("population.json");
-//}
 function setup(){
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 50);
   loadJSON("population2.json",getData);
-  if(data){
+
     bubbleSort();
   }
 
-}
-
-function getData(jData){
-  data = jData;
-  console.log(data);
+function getData(d1){
+data = d1;
 }
 
 
-function draw (){
-  background(20);
-  stroke(255);
-  fill(255);
 
-  if (data) {
-    console.log("Wazzup");
-    data.population[3].females
-    text(data.countrydata[2].males, 50, 50);
-    text("Hello Becca", 50, 50);
-  }
+
+
+
+function draw(){
 }
 
+//bubblesort function
+function bubbleSort() {
 
-function bubbleSort (){
-  console.log("sorting");
-  var d = data.countrydata
-  for (var i = d.length-1; i>0; i--){
-    for (var j = 0; j < i; j++){
-      if (d[j].females >d[j+1].females){
-        var temp = d[j];
-        d[j] =d[j+1];
-        d[j+1] = temp; //swap
-      }
+  millisecondStart = millis();
+  var length = data.countrydata.length;
+    for (var i = 0; i < length; i++) {
+        for (var j = 0; j < (length - i - 1); j++) {
+            var a = data.countrydata[j].females;
+            var b = data.countrydata[j+1].females;
+            compares++;
+            if(a > b) {
+                var temp = data.countrydata[j];
+                data.countrydata[j] = data.countrydata[j+1];
+                data.countrydata[j+1] = temp;
+                swaps++;
+            }
+        }
     }
-  }
+    millisecondEnd = millis();
+    difference = millisecondEnd - millisecondStart;
+    console.log(data);
+    console.log(millisecondStart + " start");
+    console.log(millisecondEnd + " end");
+    console.log(difference + " difference");
+    console.log(swaps + " swaps");
+    console.log(compares + " compares");
 }
