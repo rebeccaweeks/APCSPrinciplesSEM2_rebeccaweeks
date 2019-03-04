@@ -3,7 +3,6 @@
 
 
  function Ball(location, velocity, radius, col){
-
     this.loc = location;
     this.vel = velocity;
     this.acc = createVector(0,.1);
