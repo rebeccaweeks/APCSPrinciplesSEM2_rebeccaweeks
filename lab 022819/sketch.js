@@ -11,7 +11,7 @@ function setup() {
   cnv.position((windowWidth-width)/2, 30);
   background(50, 0, 50);
   ball = new Ball (createVector (width/2,height/2), createVector (0,0), 65, color(255));
-  loadBalls(105);
+  loadBalls(48);
 
 }
 

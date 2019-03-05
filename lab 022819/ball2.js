@@ -58,16 +58,10 @@
      stroke (10,1,1);
      smooth();
 
-     ellipse(this.loc.x, this.loc.y,balls[0].loc.x, balls[0].loc.y);
-     strokeWeight (15)
+     line(this.loc.x, this.loc.y,balls[0].loc.x, balls[0].loc.y);
+     strokeWeight (30)
      var rad = random (20,50);
-     strokeWeight (5);
-  stroke (0,0,215);
-    ellipse(this.loc.x, this.loc.y,width/10, width/10);
-    strokeWeight (5);
-
-
-
+    
 
 
 
