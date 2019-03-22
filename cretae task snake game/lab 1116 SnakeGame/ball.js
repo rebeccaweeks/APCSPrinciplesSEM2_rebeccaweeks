@@ -3,13 +3,11 @@
 
 
  function Ball(location, velocity, radius, col){
-
     this.loc = location;
     this.vel = velocity;
     this.acc = createVector(0,.1);
     this.rad = radius;
     this.col = col;
-
 
   // This function calls other functions
   this.run = function(){
@@ -20,28 +18,8 @@
   // changes the location of the ball
   //  adds speed to x and y
    this.update = function(){
-	   if (this!== ball){
-       //  find distance between this and ball
-       var d = this.loc.dist(ball.loc)
-   	   if (d <450){
-   		   var steeringForce = p5.Vector.sub(this.loc,ball.loc);
-   		   steeringForce.normalize();  //  changes the magnitud to 1
-   			steeringForce.mult(0.5);    //  scales the magnitude to 0.9
-   			this.vel.add(steeringForce);
-   	   }
-   	   if (d < 80){
-   		   var repForce = p5.Vector.sub(ball.loc, this.loc);
-   		   repForce.normalize();
-   		   repForce.mult(0.05);
-   		   this.vel.add(this.repForce)
-   	   }
-	   //this.vel.limit (3);
-      this.loc.add(this.vel)
-     }
-
-
-
-
+      this.vel.add(this.acc);
+      this.loc.add(this.vel);
    }
 
    //checkEdges() reverses speed when  ball touches an edge
@@ -55,16 +33,7 @@
    // render() draws the ball at  new location
   this.render = function(){
      fill(this.col);
-     stroke (10,1,1);
-     smooth();
+     ellipse(this.loc.x, this.loc.y,this.rad,this.rad);
+  }
 
-     line(this.loc.x, this.loc.y,balls[0].loc.x, balls[0].loc.y);
-     strokeWeight (30)
-     var rad = random (20,50);
-
-
-
-
-
-}
 }

@@ -3,7 +3,6 @@
 
 
  function Ball(location, velocity, radius, col){
-
     this.loc = location;
     this.vel = velocity;
     this.acc = createVector(0,.1);
@@ -56,15 +55,11 @@
   this.render = function(){
      fill(this.col);
      stroke (10,1,1);
-     smooth();
+     line(this.loc.x, this.loc.y,balls[2].loc.x, balls[3].loc.y);
+     stroke (110,200,215);
+     line(this.loc.x +10, this.loc.y +200,balls[1].loc.x, balls[1].loc.y);
+     stroke (0,0,215);
+     line(this.loc.x +100, this.loc.y +300,balls[0].loc.x, balls[0].loc.y);
+  }
 
-     line(this.loc.x, this.loc.y,balls[0].loc.x, balls[0].loc.y);
-     strokeWeight (30)
-     var rad = random (20,50);
-
-
-
-
-
-}
 }
