@@ -10,7 +10,7 @@ var scl = 20;
 var snake;
 var food;
 var gameState ; //
-var timeRemaining;
+
 
 //var score = 0;
 
@@ -45,7 +45,7 @@ if(gameState === 1){
   food.draw();
   snake.collision();
   snake.timer();
-  text ("score =" + snake.score, 0,200,150);
+  text ("score =" +   snake.score, 0,200,150);
   text ("time remaining: " + snake.timeRemaining, 0,100,200);
   noStroke()
 }else if(gameState === 3){

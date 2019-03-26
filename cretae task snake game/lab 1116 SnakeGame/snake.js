@@ -2,7 +2,7 @@
 // becca weeks
 
 var w = 20;
-var timeRemaining = 15;
+
 function Snake() {
   this.x = cols()/2 * scl;
   this.y = rows()/2 * scl;
@@ -10,6 +10,9 @@ function Snake() {
   this.yspeed = 0;
   this.segment = [];
   this.score = 0;
+ this.timeRemaining = 15;
+
+
 
 
   this.dir = function(x, y) {
@@ -24,7 +27,7 @@ function Snake() {
     if (this.x === food.x() && this.y === food.y()) {
       food.eaten();
       this.score+= 1;
-    timeRemaining = 10 ;
+    this.timeRemaining = 15;
       this.segment.push(createVector(this.x, this.y));
       this.eat (food,1);
 
@@ -96,13 +99,13 @@ function Snake() {
   //  gameState = 3;
   textFont()
   fill (0,0,0);
-  rect (225,330,330,200);
-  fill (120,139,19);
-  rect (240, 315, 320, 170);
-  fill (0,0,0);
+  rect (175,330,430,200);
+//  fill (97, 199, 221);
+  //rect (240, 315, 320, 170);
+  fill (255,255,255);
   textAlign (CENTER);
   textSize (25);
-  text ("GAME OVER! Your high score was: " + snake.score, 400,425);
+  text ("GAME OVER!Your high score was: " + snake.score, 400,425);
 
       noLoop();
       score = 0;
@@ -119,16 +122,15 @@ function Snake() {
     }
   }
   this.timer = function () {
-    function timer(){
-      if (frameCount % 60 == 0 && timeRemaining > 0) { // if the frameCount is divisible by 60, then a second has passed. it will stop at 0
-        timeRemaining --;
+
+      if (frameCount % 10 == 0 && this.timeRemaining > 0) { // if the frameCount is divisible by 60, then a second has passed. it will stop at 0
+        this.timeRemaining --;
       }
-      if (timeRemaining == 0) {
+      if (this.timeRemaining == 0) {
         gameState = 3;
         this.gameOver();
 
       }
-    }
 
   }
 
